@@ -1,3 +1,5 @@
+import numpy as np
+
 class Maze(object):
     def __init__(self, entrada):
         self.moves = ['U','D','L','R']
@@ -13,9 +15,10 @@ class Maze(object):
                 if maze_line[-1] == '\n':
                     maze_line.pop()
                 self.maze.append(maze_line)
-            
-            
-                
-            
-
         
+
+    def show_maze(self):
+        for line in self.maze:
+            for item in line:
+                print(item, end=' ')
+            print()
