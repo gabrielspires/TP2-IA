@@ -1,4 +1,4 @@
-import numpy as np
+import random
 
 class Maze(object):
     def __init__(self, entrada):
@@ -16,8 +16,8 @@ class Maze(object):
     
     def random_valid_positon(self):
         while(1):
-            x = np.random.randint(self.numLines)
-            y = np.random.randint(self.numCols)
+            x = random.randint(0,self.numLines-1)
+            y = random.randint(0,self.numCols-1)
             if self.maze[x][y] == '-':
                 return (x,y)
 

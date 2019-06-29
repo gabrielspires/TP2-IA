@@ -1,6 +1,4 @@
 import random
-import numpy as np
-import pprint as pp
 
 class Qlearning(object):
     def __init__(self, maze, epsilon, alpha, n):
@@ -10,6 +8,9 @@ class Qlearning(object):
         self.n = n
         self.actual_state = maze.random_valid_positon()     
         self.moves = ['R','L','U','D']
+
+        self.mean_reward = []
+        self.episode = 0
         
         # Criação da Q-Table
         self.q_table = {}
@@ -77,6 +78,25 @@ class Qlearning(object):
             self.actual_state = self.maze.random_valid_positon()
             self.n -= 1
 
+            mean_reward = 0
+            num_rewards = 0
+            for x in self.q_table:
+                for y in self.q_table[x]:
+                    if self.maze.maze[int(x)][int(y)] != '-':
+                        continue
+                    for action in self.q_table[x][y]:
+                        mean_reward += self.q_table[x][y][action]
+                        num_rewards += 1
+
+            mean_reward /= num_rewards
+            self.mean_reward.append([self.episode, mean_reward])
+            self.episode += 1
+
+    def show_mean_reward(self):
+        values = ''
+        for episode in self.mean_reward:
+            values += str(episode[0]) + ' ' + str(episode[1]) + '\n'
+        return values
 
     def learn(self):
         while(self.n):
