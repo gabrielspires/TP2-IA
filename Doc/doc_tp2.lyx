@@ -9,8 +9,8 @@
 \date {}
 
 \usepackage{titling}
-\setlength{\droptitle}{-6em}
-\posttitle{\par\end{center}\vspace{-7em}}
+\setlength{\droptitle}{-4em}
+\posttitle{\par\end{center}\vspace{-1em}}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -84,11 +84,43 @@
 \begin_body
 
 \begin_layout Title
-Aehoooo titulo
+Trabalho Prático 2 - Q-Learning
+\begin_inset Newline newline
+\end_inset
+
+Inteligência Artificial 2019/1
 \end_layout
 
-\begin_layout Standard
-teste
+\begin_layout Author
+Gabriel Henrique Souto Pires - 2014106384
+\end_layout
+
+\begin_layout Section
+Implementação
+\end_layout
+
+\begin_layout Section
+Decisões de Projeto
+\end_layout
+
+\begin_layout Section
+Saídas obtidas
+\end_layout
+
+\begin_layout Section
+Análise (Gráficos e tabelas)
+\end_layout
+
+\begin_layout Section
+Resultados obtidos
+\end_layout
+
+\begin_layout Section
+Principais dificuldades
+\end_layout
+
+\begin_layout Section
+Referências
 \end_layout
 
 \end_body

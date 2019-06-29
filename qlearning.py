@@ -28,7 +28,8 @@ class Qlearning(object):
         for x in self.q_table:
             for y in self.q_table[x]:
                 for move in self.q_table[x][y]:
-                    q_table += f'{x},{y},{move},{"%0.3f" % self.q_table[x][y][move]}\n'
+                    if self.maze.maze[int(x)][int(y)] == '-':
+                        q_table += f'{x},{y},{move},{"%0.3f" % self.q_table[x][y][move]}\n'
         return q_table
     
     def reward(self, x, y):
@@ -74,10 +75,11 @@ class Qlearning(object):
         if new_state == "&" or new_state == '0':
             #fim do episodio
             self.actual_state = self.maze.random_valid_positon()
+            self.n -= 1
 
 
     def learn(self):
-        for _ in range(self.n):
+        while(self.n):
             if random.uniform(0, 1) < 2:
                 """
                 Explore: select a random action
