@@ -9,10 +9,16 @@ import qlearning as q
 myMaze = m.Maze(sys.argv[1])
 alpha = float(sys.argv[2])
 epsilon = float(sys.argv[3])
-n = float(sys.argv[4])
+n = int(sys.argv[4])
 
+myMaze.show_maze()
 qLearning = q.Qlearning(myMaze, epsilon, alpha, n)
-qLearning.show_q_table()
-# myMaze.show_maze()
-# print(myMaze.random_valid_positon())
 qLearning.learn()
+print(qLearning.show_q_table())
+print(qLearning.show_policy())
+
+with open('q.txt','w') as q_table_file:
+    q_table_file.write(qLearning.show_q_table())
+with open('pi.txt','w') as policy_file:
+    policy_file.write(qLearning.show_policy())
+    
