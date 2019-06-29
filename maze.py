@@ -2,8 +2,6 @@ import numpy as np
 
 class Maze(object):
     def __init__(self, entrada):
-        self.moves = ['U','D','L','R']
-
         with open(entrada, 'r') as pacmaze:
             dimension = pacmaze.readline().split()
             self.numLines = int(dimension[0])
@@ -15,7 +13,13 @@ class Maze(object):
                 if maze_line[-1] == '\n':
                     maze_line.pop()
                 self.maze.append(maze_line)
-        
+    
+    def random_valid_positon(self):
+        while(1):
+            x = np.random.randint(self.numLines)
+            y = np.random.randint(self.numCols)
+            if self.maze[x][y] == '-':
+                return (x,y)
 
     def show_maze(self):
         for line in self.maze:
