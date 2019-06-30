@@ -835,6 +835,8 @@ a negativa.
  À medida que os episódios passam, o agente só consegue encontrar estados
  finais ruins ou até mesmo explorar o labirinto sem chegar a nenhum estado
  final, o que prejudica a recompensa média.
+ Assim como nos outros casos, pode-se notar que os casos com baixa taxa
+ de aprendizado demoram mais para convergir.
 \end_layout
 
 \begin_layout Standard
@@ -885,7 +887,7 @@ Entrada
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 11 20 
@@ -1001,6 +1003,31 @@ status collapsed
 \end_layout
 
 \begin_layout Standard
+Esse caso é muito semelhante ao anterior, porém, em um labirinto menor.
+ Aqui vemos a mesma tendência de começar com a média das recompensas em
+ zero e cair, mantendo o valor negativo.
+ Apesar de esse labirinto aparecer muito mais ameaçador do que o anterior,
+ com as 
+\begin_inset Quotes eld
+\end_inset
+
+paredes
+\begin_inset Quotes erd
+\end_inset
+
+ praticamente todas feitas de estados finais ruins, deixando o estado bom
+ rodeado deles, aqui o agente tem a chance de aprender sobre o labirinto,
+ o que não acontecia no labirinto anterior, já que o agente ficava a maior
+ parte do tempo preso nas paredes sem conseguir se movimentar.
+ Isso faz com que o agente comece muito mal, caindo em estados ruins, daí
+ a queda abrupta visível no início do gráfico, porém, à medida que o agente
+ aprende onde não deve ir, fica muito mais fácil seguir por caminhos mais
+ seguros.
+ Novamente as execuções onde a taxa de aprendizado é alta são os que convergem
+ mais rapidamente.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement h
 wide false
@@ -1039,8 +1066,23 @@ Recompensas médias ao longo do tempo no labirinto de tamanho 11x20
 Principais dificuldades
 \end_layout
 
+\begin_layout Standard
+A tarefa que mais tomou tempo nesse trabalho foi a elaboração dos gráficos,
+ mas creio que tenha valido a pena, pois, com os gráficos, foi possível
+ visualizar muito melhor como o algoritmo se comporta variando os argumentos
+ e o ambiente em que o agente se encontra.
+\end_layout
+
 \begin_layout Section
 Referências
+\end_layout
+
+\begin_layout Standard
+Simple Reinforcement Learning: Q-learning.
+ Disponível em: <https://towardsdatascience.com/simple-reinforcement-learning-q-l
+earning-fcddc4b6fe56>.
+ Acesso em: 27 jul.
+ 2019.
 \end_layout
 
 \end_body

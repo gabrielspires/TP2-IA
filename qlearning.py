@@ -101,14 +101,10 @@ class Qlearning(object):
     def learn(self):
         while(self.n):
             if random.uniform(0, 1) < self.epsilon:
-                """
-                Explore: select a random action
-                """
+                # Exploration
                 self.move(random.choice(self.moves))
             else:
-                """
-                Exploit: select the action with max value (future reward)
-                """
+                # Exploitation
                 x = str(self.actual_state[0])
                 y = str(self.actual_state[1])
                 best_move = max(self.q_table[x][y], key=self.q_table[x][y].get)
