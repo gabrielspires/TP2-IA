@@ -22,7 +22,7 @@ class Qlearning(object):
                 if item == '-' or item == '&' or item == '0':
                     for move in self.moves:
                         self.q_table[str(i)][str(j)].update({move: 0.0})
-
+		
 
     def show_q_table(self):
         q_table = ''
@@ -100,7 +100,7 @@ class Qlearning(object):
 
     def learn(self):
         while(self.n):
-            if random.uniform(0, 1) < 2:
+            if random.uniform(0, 1) < self.epsilon:
                 """
                 Explore: select a random action
                 """
@@ -112,7 +112,6 @@ class Qlearning(object):
                 x = str(self.actual_state[0])
                 y = str(self.actual_state[1])
                 best_move = max(self.q_table[x][y], key=self.q_table[x][y].get)
-                print('best =', best_move)
                 self.move(best_move)
     
     def show_policy(self):

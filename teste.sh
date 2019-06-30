@@ -1,21 +1,21 @@
-for i in 3 4
+for i in 1 2 3 4
 do
     n=0
     if [ $i -eq 1 ]
     then
-        n=300
+        n=400
     fi
     if [ $i -eq 2 ]
     then
-        n=1000
+        n=900
     fi
     if [ $i -eq 3 ]
     then
-        n=30000
+        n=23000
     fi
     if [ $i -eq 4 ]
     then
-        n=30000
+        n=25000
     fi
     ./main.py "pacmaze$i.txt" 0.1 0.1 $n
     ./main.py "pacmaze$i.txt" 0.1 0.5 $n
